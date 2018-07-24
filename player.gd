@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 # This is a demo showing how KinematicBody2D
 # move_and_slide works.
-
+#hello
 # Member variables
 const MOTION_SPEED = 160 # Pixels/second
 
