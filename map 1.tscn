@@ -1,32 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://enemy.gd" type="Script" id=2]
-[ext_resource path="res://assets/enemy 1.png" type="Texture" id=3]
-[ext_resource path="res://unit.gd" type="Script" id=4]
-[ext_resource path="res://assets/pistol.png" type="Texture" id=5]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://unit.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1020, 70, 0, 0, 0, 0, 250, 70, 0, 0, 0, 0, 260, 540, 0, 0, 0, 0, 510, 540 )
 }
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 3.18539, 4.62631 )
-
-[sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 5.0
-
-[sub_resource type="CircleShape2D" id=6]
-
-custom_solver_bias = 0.0
-radius = 94.2019
 
 [node name="TileMap" type="TileMap" index="0"]
 
@@ -52,110 +35,16 @@ _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 [node name="Path2D" type="Path2D" parent="." index="0"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-curve = SubResource( 4 )
+curve = SubResource( 1 )
 
-[node name="enemy 1" type="PathFollow2D" parent="Path2D" index="0"]
+[node name="enemy 1" parent="Path2D" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 482.185, 70 )
-rotation = 3.14159
-offset = 537.67
-h_offset = 0.0
-v_offset = 0.0
-rotate = true
-cubic_interp = true
-loop = true
-lookahead = 4.0
-script = ExtResource( 2 )
-speed = 30
 
-[node name="Sprite" type="Sprite" parent="Path2D/enemy 1" index="0"]
+[node name="Position2D" type="Position2D" parent="Path2D" index="1"]
 
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 1020, 70 )
 
-[node name="Area2D" type="Area2D" parent="Path2D/enemy 1" index="1"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/enemy 1/Area2D" index="0"]
-
-position = Vector2( 0.0810242, -4.3737 )
-shape = SubResource( 5 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/enemy 1" index="2"]
-
-input_pickable = false
-collision_layer = 2
-collision_mask = 1
-collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Path2D/enemy 1/KinematicBody2D" index="0"]
-
-position = Vector2( 0.0810242, -4.3737 )
-shape = SubResource( 5 )
-
-[node name="unit" type="KinematicBody2D" parent="." index="1"]
-
-position = Vector2( 432, 269 )
-input_pickable = false
-collision_layer = 0
-collision_mask = 0
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Collision", "Transform" ]
-enemy_path = NodePath("Path2D/enemy 1")
-
-[node name="Sprite" type="Sprite" parent="unit" index="0"]
-
-rotation = 3.14159
-texture = ExtResource( 5 )
-vframes = 2
-_sections_unfolded = [ "Animation", "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="unit" index="1"]
-
-shape = SubResource( 3 )
-
-[node name="shootingRange" type="Area2D" parent="unit" index="2"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="unit/shootingRange" index="0"]
-
-position = Vector2( 8, -8 )
-shape = SubResource( 6 )
-
-[node name="Timer" type="Timer" parent="unit" index="3"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-
-[connection signal="body_entered" from="Path2D/enemy 1/Area2D" to="Path2D/enemy 1" method="_on_Area2D_body_entered"]
-
-[connection signal="body_exited" from="Path2D/enemy 1/Area2D" to="unit" method="_on_Area2D_body_exited"]
-
-[connection signal="body_entered" from="unit/shootingRange" to="unit" method="_on_shootingRange_body_entered"]
-
-[connection signal="timeout" from="unit/Timer" to="unit" method="_on_Timer_timeout"]
+[node name="unit" parent="." index="1" instance=ExtResource( 3 )]
 
 

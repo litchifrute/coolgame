@@ -3,6 +3,7 @@ extends RigidBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+var speed = 10
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -18,5 +19,5 @@ func _ready():
 
 func shoot(direction, pos):
 	global_position = pos
-	apply_impulse(pos, direction )
+	apply_impulse(pos, direction * speed)
 	print(global_position)
