@@ -7,6 +7,8 @@ extends RigidBody2D
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	#var dir = Vector2(1,0)
+	#shoot(dir, position)
 	pass
 
 #func _process(delta):
@@ -15,5 +17,6 @@ func _ready():
 #	pass
 
 func shoot(direction, pos):
-	apply_impulse(pos, direction * 25)
-	print("shot")
+	global_position = pos
+	apply_impulse(pos, direction )
+	print(global_position)
