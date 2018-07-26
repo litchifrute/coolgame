@@ -16,7 +16,7 @@ var enemy_target = null
 export(NodePath) var enemy_path = null
 
 func _ready():
-	set_physics_process(true)
+	set_physics_process(true)#hi
 
 func _physics_process(delta):
 	
