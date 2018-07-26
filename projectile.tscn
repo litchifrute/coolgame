@@ -29,7 +29,7 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -43,5 +43,14 @@ position = Vector2( 2.5843, -4.8016 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Death timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="Death timer" to="." method="_on_Death_timer_timeout"]
 
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://unit.gd" type="Script" id=1]
-[ext_resource path="res://assets/pistol.png" type="Texture" id=2]
+[ext_resource path="res://assets/sniper.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -49,13 +49,14 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shootingRange" index="0"]
 
+scale = Vector2( 2, 2 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 2.0
 one_shot = false
 autostart = false
 

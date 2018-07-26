@@ -21,3 +21,6 @@ func shoot(direction, pos):
 	global_position = pos
 	apply_impulse(pos, direction * speed)
 	print(global_position)
+
+func _on_Death_timer_timeout():
+	queue_free()
