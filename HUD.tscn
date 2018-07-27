@@ -2,7 +2,7 @@
 
 [ext_resource path="res://unitSelectContainer.tscn" type="PackedScene" id=1]
 
-[node name="VBoxContainer" type="VBoxContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -24,21 +24,30 @@ _sections_unfolded = [ "Margin", "custom_constants" ]
 
 [node name="Container" parent="." index="0" instance=ExtResource( 1 )]
 
-margin_top = 50.0
-margin_bottom = 50.0
+margin_top = 25.0
+margin_bottom = 25.0
 photo = "res://assets/pistol icon.png"
 unitType = "Pistol Unit"
 
 [node name="Container2" parent="." index="1" instance=ExtResource( 1 )]
 
+margin_top = 75.0
+margin_bottom = 75.0
 photo = "res://assets/double revolver icon.png"
 unitType = "Double Revolver Unit"
 
 [node name="Container3" parent="." index="2" instance=ExtResource( 1 )]
 
-margin_top = 150.0
-margin_bottom = 150.0
+margin_top = 125.0
+margin_bottom = 125.0
 photo = "res://assets/sniper icon.png"
 unitType = "Sniper"
+
+[node name="Container4" parent="." index="3" instance=ExtResource( 1 )]
+
+margin_top = 175.0
+margin_bottom = 175.0
+photo = "res://assets/honey badger icon.png"
+unitType = "Honey Badger Assault  Rifle"
 
 

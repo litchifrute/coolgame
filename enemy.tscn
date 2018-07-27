@@ -28,7 +28,7 @@ speed = 30
 
 input_pickable = false
 collision_layer = 2
-collision_mask = 1
+collision_mask = 0
 collision/safe_margin = 0.08
 _sections_unfolded = [ "Collision" ]
 
@@ -45,7 +45,7 @@ shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="KinematicBody2D" index="2"]
 
-position = Vector2( -5.72205e-06, -5.00001 )
+position = Vector2( -5.72205e-006, -5.00001 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -60,6 +60,10 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 0.0810101, 0.442144 )
 shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="." index="1"]
+
+position = Vector2( 0.0731093, -4.75132 )
 
 [connection signal="body_entered" from="KinematicBody2D/Area2D" to="." method="_on_Area2D_body_entered"]
 

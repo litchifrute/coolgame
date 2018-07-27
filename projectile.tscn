@@ -35,11 +35,11 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
+offset = Vector2( -0.503278, 0.999273 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 2.5843, -4.8016 )
 scale = Vector2( 5, 5 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]

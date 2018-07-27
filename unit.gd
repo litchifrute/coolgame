@@ -16,7 +16,7 @@ var enemy_target = null
 export(NodePath) var enemy_path = null
 
 func _ready():
-	set_physics_process(true)#hi
+	set_physics_process(true)
 
 func _physics_process(delta):
 	
@@ -53,7 +53,7 @@ func get_best_enemy(bodies):
 func _on_shootingRange_body_entered(body):
 	bodPos = body.global_position
 	if body.is_in_group("enemy") and lookForNewEnemy == true:
-		enemy_target = body
+		enemy_target = body.Position2D
 		print("In range")
 		
 		activeShooting = true
@@ -66,7 +66,7 @@ func shoot():
 	var shootLocation = enemy_target.global_position - global_position
 	shootLocation.normalized()
 	var projectileInstance = projectile.instance()
-	
+	projectileInstance.rotation = rotation - PI/2
 	get_parent().get_parent().add_child(projectileInstance)
 	projectileInstance.shoot(shootLocation, global_position)
 	

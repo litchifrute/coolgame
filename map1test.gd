@@ -7,6 +7,7 @@ var unit = load("res://unit.tscn")
 var enemy = load("res://enemy.tscn")
 var unitDoubleRevolver = load("res://unitDoubleRevolver.tscn")
 var unitSniper = load("res://sniper.tscn")
+var unitHoneyBadger = load("res://honey badger.tscn")
 var selectedTowerType = null
 var towerSelect = true
 
@@ -36,7 +37,11 @@ func _physics_process(delta):
 		print($VBoxContainer/Container3.unitType)
 		towerSelect = false
 		selectedTowerType = $VBoxContainer/Container3.unitType
-		
+	elif towerSelect == true and $VBoxContainer/Container4.clicked == true:
+		print($VBoxContainer/Container4.unitType)
+		towerSelect = false
+		selectedTowerType = $VBoxContainer/Container4.unitType
+			
 func placeTower(pos):
 	if selectedTowerType == "Pistol Unit":
 		var unitInstance = unit.instance()
@@ -48,6 +53,10 @@ func placeTower(pos):
 		add_child(unitInstance)
 	elif selectedTowerType == "Sniper":
 		var unitInstance = unitSniper.instance()
+		unitInstance.global_position = pos
+		add_child(unitInstance)
+	elif selectedTowerType == "Honey Badger Assault  Rifle":
+		var unitInstance = unitHoneyBadger.instance()
 		unitInstance.global_position = pos
 		add_child(unitInstance)
 		
