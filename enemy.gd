@@ -16,5 +16,7 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body is RigidBody2D:
+		get_parent().get_parent().get_parent().get_node("VBoxContainer/Money").addMoney(20)
+		#print(get_parent().get_parent().get_parent())
 		queue_free()
 		body.queue_free()

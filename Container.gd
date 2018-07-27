@@ -6,6 +6,7 @@ extends Container
 export (String) var photo 
 export (String) var unitType
 
+
 var canClick 
 var clicked
 
@@ -14,7 +15,8 @@ func _ready():
 	# Initialization here
 	$Sprite.texture = load(photo)
 
-func _process(delta):
+func _process(delta):\
+	
 	clicked = false
 	if canClick == true and Input.is_action_just_pressed("leftMouseButton"):
 		print("You have selected ", unitType)

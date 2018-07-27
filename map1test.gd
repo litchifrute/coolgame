@@ -54,25 +54,41 @@ func _physics_process(delta):
 		
 func placeTower(pos):
 	if selectedTowerType == "Pistol Unit":
-		var unitInstance = unit.instance()
-		unitInstance.global_position = pos
-		add_child(unitInstance)
+		if $VBoxContainer/Money.subMoney(200) == false:
+			$VBoxContainer/Money.addMoney(200) 
+		else:
+			var unitInstance = unit.instance()
+			unitInstance.global_position = pos
+			add_child(unitInstance)
+		
 	elif selectedTowerType == "Double Revolver Unit":
-		var unitInstance = unitDoubleRevolver.instance()
-		unitInstance.global_position = pos
-		add_child(unitInstance)
+		if $VBoxContainer/Money.subMoney(400) == false:
+			$VBoxContainer/Money.addMoney(400) 
+		else:
+			var unitInstance = unitDoubleRevolver.instance()
+			unitInstance.global_position = pos
+			add_child(unitInstance)
 	elif selectedTowerType == "Sniper":
-		var unitInstance = unitSniper.instance()
-		unitInstance.global_position = pos
-		add_child(unitInstance)
+		if $VBoxContainer/Money.subMoney(800) == false:
+			$VBoxContainer/Money.addMoney(800) 
+		else:
+			var unitInstance = unitSniper.instance()
+			unitInstance.global_position = pos
+			add_child(unitInstance)
 	elif selectedTowerType == "Honey Badger Assault  Rifle":
-		var unitInstance = unitHoneyBadger.instance()
-		unitInstance.global_position = pos
-		add_child(unitInstance)
+		if $VBoxContainer/Money.subMoney(1000) == false:
+			$VBoxContainer/Money.addMoney(1000) 
+		else:	
+			var unitInstance = unitHoneyBadger.instance()
+			unitInstance.global_position = pos
+			add_child(unitInstance)
 	elif selectedTowerType == "Machine Gun":
-		var unitInstance = unitMachineGun.instance()
-		unitInstance.global_position = pos
-		add_child(unitInstance)
+		if $VBoxContainer/Money.subMoney(1000) == false:
+			$VBoxContainer/Money.addMoney(1000) 
+		else:
+			var unitInstance = unitMachineGun.instance()
+			unitInstance.global_position = pos
+			add_child(unitInstance)
 		
 func _on_Timer_timeout():
 	var enemyInstance = enemy.instance()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://unitSelectContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Money.gd" type="Script" id=1]
+[ext_resource path="res://unitSelectContainer.tscn" type="PackedScene" id=2]
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -12,6 +13,7 @@ margin_left = 16.0
 margin_top = 16.0
 margin_right = 56.0
 margin_bottom = 216.0
+rect_min_size = Vector2( 10, 10 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -20,38 +22,74 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 50
 alignment = 1
-_sections_unfolded = [ "Margin", "custom_constants" ]
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
 
-[node name="Container" parent="." index="0" instance=ExtResource( 1 )]
+[node name="Money" type="Panel" parent="." index="0"]
 
-margin_top = 0.0
-margin_bottom = 0.0
-photo = "res://assets/pistol icon.png"
-unitType = "Pistol Unit"
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
 
-[node name="Container2" parent="." index="1" instance=ExtResource( 1 )]
+[node name="Label" type="Label" parent="Money" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -16.0
+margin_right = 24.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "500"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Container" parent="." index="1" instance=ExtResource( 2 )]
 
 margin_top = 50.0
 margin_bottom = 50.0
+photo = "res://assets/pistol icon.png"
+unitType = "Pistol Unit"
+
+[node name="Container2" parent="." index="2" instance=ExtResource( 2 )]
+
 photo = "res://assets/double revolver icon.png"
 unitType = "Double Revolver Unit"
 
-[node name="Container3" parent="." index="2" instance=ExtResource( 1 )]
-
-photo = "res://assets/sniper icon.png"
-unitType = "Sniper"
-
-[node name="Container4" parent="." index="3" instance=ExtResource( 1 )]
+[node name="Container3" parent="." index="3" instance=ExtResource( 2 )]
 
 margin_top = 150.0
 margin_bottom = 150.0
-photo = "res://assets/honey badger icon.png"
-unitType = "Honey Badger Assault  Rifle"
+photo = "res://assets/sniper icon.png"
+unitType = "Sniper"
 
-[node name="Container5" parent="." index="4" instance=ExtResource( 1 )]
+[node name="Container4" parent="." index="4" instance=ExtResource( 2 )]
 
 margin_top = 200.0
 margin_bottom = 200.0
+photo = "res://assets/honey badger icon.png"
+unitType = "Honey Badger Assault  Rifle"
+
+[node name="Container5" parent="." index="5" instance=ExtResource( 2 )]
+
+margin_top = 250.0
+margin_bottom = 250.0
 photo = "res://assets/machinegunicon.png"
 unitType = "Machine Gun"
 
