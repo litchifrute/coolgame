@@ -83,8 +83,8 @@ func placeTower(pos):
 			unitInstance.global_position = pos
 			add_child(unitInstance)
 	elif selectedTowerType == "Machine Gun":
-		if $VBoxContainer/Money.subMoney(1000) == false:
-			$VBoxContainer/Money.addMoney(1000) 
+		if $VBoxContainer/Money.subMoney(1200) == false:
+			$VBoxContainer/Money.addMoney(1200) 
 		else:
 			var unitInstance = unitMachineGun.instance()
 			unitInstance.global_position = pos
