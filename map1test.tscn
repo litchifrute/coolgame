@@ -11,6 +11,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" parent="." index="0" instance=ExtResource( 2 )]
 
+position = Vector2( 48, 8 )
+
 [node name="Timer" type="Timer" parent="." index="1"]
 
 process_mode = 1
